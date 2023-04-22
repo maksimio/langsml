@@ -2,14 +2,15 @@
 
 ## Установка средств языка
 
-Нужно установить интерпретатор языка Python.
+Нужно установить интерпретатор языка Python. Он по умолчанию встроен в операционную систему Linux
 
 ## Установка библиотек
-1. Pandas
-2. Matplotlib
+1. [Pandas](https://pandas.pydata.org/)
+2. [Matplotlib](https://matplotlib.org/)
+
+Установка: `pip install pandas matplotlib`
 
 # Обработка Titanic dataset
-
 1. Чтение из файла и вывод в консоли
 2. Выборка по 2 условиям
 3. Расчет новой колонки
