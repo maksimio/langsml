@@ -1,6 +1,6 @@
 import * as d3 from 'd3'
 import fs from 'fs'
-import plotly from 'plotly'
+import { plot } from 'nodeplotlib'
 
 
 // ----- 1. Чтение из файла и вывод в консоли
@@ -20,22 +20,9 @@ df = df.map((v) => ({ ...v, 'NameLen': v['Name'].length }))
 // ----- 4. Построение графика точек зависимости 2 величин (scatter plot)
 const x = df.map((v) => v['Age'])
 const y = df.map((v) => v['Fare'])
-const pl = plotly({ "username": "DemoAccount", "apiKey": "lr1c37zw81", "host": "127.0.0.1", "port": 3010 })
 
-var data = [{x:[0,1,2], y:[3,2,1], type: 'bar'}];
-
-var layout = {fileopt : "overwrite", filename : "simple-node-example"};
-
-
-pl.plot(data, layout, function (err, msg) {
-
-	if (err) return console.log(err);
-
-	console.log(msg);
-
-});
-
- 
+const data2 = [{ x, y, type: 'scatter', mode: 'markers' }]
+plot(data2)
 
 // ----- 5. Сортировка по 2 столбцам
 df = df.sort((a, b) => {
