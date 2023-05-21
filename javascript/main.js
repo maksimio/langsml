@@ -2,7 +2,6 @@ import * as d3 from 'd3'
 import fs from 'fs'
 import { plot } from 'nodeplotlib'
 
-
 // ----- 1. Чтение из файла и вывод в консоли
 const f = fs.readFileSync('../dataset.csv')
 let df = d3.csvParse(String(f))
