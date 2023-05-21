@@ -1,4 +1,4 @@
-print("Hello world!")
+library(stringr)
 
 # ----- 1. Чтение из файла и вывод в консоли
 df <- read.csv("../dataset.csv")
@@ -13,10 +13,14 @@ print(paste("Количество до и после фильтрации:", len
 
 # ----- 3. Расчет новой колонки и удаление старой
 df <- df[, !names(df) %in% c("Embarked")]
+df$NameLen <- str_count(df$Name)
 
 # ----- 4. Построение графика точек зависимости 2 величин (scatter plot)
+png(filename = "out.png")
+plot(df$Age, df$Fare)
 
 # ----- 5. Сортировка по 2 столбцам
+df <- df[order(df$Sex, df$Fare, decreasing = TRUE),]
 
 # ----- 6. Сохранение в файл
-write.csv(df, "out.csv", quote = FALSE, row.names = FALSE)
+write.csv(df, "out.csv", row.names = FALSE)
